@@ -193,23 +193,120 @@
   echo $int_cast;
   ?>
 
-<h2>PHP Constant</h2>
-<?php
-echo "A constant is an identifier (name) for a simple value. The value cannot be changed during the script. A valid constant name starts with a letter or underscore (no $ sign before the constant name). Note: Unlike variables, constants are automatically global across the entire script. To create a constant, use the define() function.<br />";
+  <h2>PHP Constant</h2>
+  <?php
+  echo "A constant is an identifier (name) for a simple value. The value cannot be changed during the script. A valid constant name starts with a letter or underscore (no $ sign before the constant name). Note: Unlike variables, constants are automatically global across the entire script. To create a constant, use the define() function.<br />";
 
-/* To create a constant, use the define() function.
-define(name, value, case-insensitive) */ 
-define("GREETING", "Welcome to W3Schools.com!");
-echo GREETING;
+  /* To create a constant, use the define() function.
+  define(name, value, case-insensitive) */
+  define("GREETING", "Welcome to W3Schools.com!");
+  echo GREETING;
 
-//Create a constant with a case-sensitive name:
-define("GREETING", "Welcome to W3Schools.com!", true);
-echo greeting. "<br />";
+  //Create a constant with a case-sensitive name:
+  define("GREETING", "Welcome to W3Schools.com!", true);
+  echo greeting. "<br />";
 
-//Create an Array constant:
-define("cars", ["Alfa Romeo", "BMW", "Toyota"]);
-echo cars[0]. "<br />";
- ?>
+  //Create an Array constant:
+  define("cars", ["Alfa Romeo", "BMW", "Toyota"]);
+  echo cars[0]. "<br />";
+  ?>
 
+  <?php
+  define("GREETING", "Welcome to W3Schools.com!");
+
+  function myTest5() {
+    echo GREETING;
+  }
+
+  myTest5();
+  ?>
+
+  <h2>PHP Operators</h2>
+  <?php
+  echo "===	Identical	$x === $y	Returns true if $x is equal to $y, and they are of the same type. <br />";
+  echo "!==	Not identical	$x !== $y	Returns true if $x is not equal to $y, or they are not of the same type. <br />";
+  echo "<=>	Spaceship	$x <=> $y	Returns an integer less than, equal to, or greater than zero, depending on if $x is less than, equal to, or greater than $y. Introduced in PHP 7.<br />";
+
+  $x = 5;
+  $y = 10;
+
+  echo ($x <=> $y); // returns -1 because $x is less than $y
+  echo "<br>";
+
+  $x = 10;
+  $y = 10;
+
+  echo ($x <=> $y); // returns 0 because values are equal
+  echo "<br>";
+
+  $x = 15;
+  $y = 10;
+
+  echo ($x <=> $y); // returns +1 because $x is greater than $y
+  ?>
+
+  <?php
+  $txt1 = "Hello";
+  $txt2 = " world!";
+  $txt1 .= $txt2; // Concatenation assignment	$txt1 .= $txt2	Appends $txt2 to $txt1
+  echo $txt1;
+  ?>
+
+  <?php
+  echo "?:	Ternary	$x = expr1 ? expr2 : expr3	Returns the value of $x.
+  The value of $x is expr2 if expr1 = TRUE.
+  The value of $x is expr3 if expr1 = FALSE<br />";
+  ?>
+
+  <h2>PHP switch</h2>
+  <?php
+  echo "switch (n) {
+    case label1:
+    code to be executed if n=label1;
+    break;
+    case label2:
+    code to be executed if n=label2;
+    break;
+    case label3:
+    code to be executed if n=label3;
+    break;
+    ...
+    default:
+    code to be executed if n is different from all labels;
+  } <br />" //The default with : not ;
+  ?>
+
+  <h2>PHP function</h2>
+  <?php
+  function writeMsg() {
+    echo "Hello world";
+  }
+
+  writeMsg();
+  echo "<br />";
+
+  function familyName($fname, $year) {
+    echo "$fname Refsnes. Born in $year. <br />";
+  }
+
+  familyName("Jani", "1975");
+  familyName("Hege", "1985");
+  familyName("Stale", "2000");
+  familyName("Kai Jim", "2010");
+  familyName("Borge", "1983");
+
+  echo "PHP is a Loosely Typed Language
+In the example above, notice that we did not have to tell PHP which data type the variable is.
+
+PHP automatically associates a data type to the variable, depending on its value. Since the data types are not set in a strict sense, you can do things like adding a string to an integer without causing an error.
+
+In PHP 7, type declarations were added. This gives us an option to specify the data type expected when declaring a function, and by enabling the strict requirement, it will throw a \"Fatal Error\" on a type mismatch. In the following example we try to add a number and a string without the strict requirement:<br />";
+
+function addNumbers(int $a, int $b) {
+    return $a + $b;
+}
+echo addNumbers(5, "5 days");
+// since strict is NOT enabled "5 days" is changed to int(5), and it will return 10
+  ?>
 </body>
 </html>
